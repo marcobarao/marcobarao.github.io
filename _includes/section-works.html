@@ -1,0 +1,17 @@
+<section class="wrap-works" id='works'>
+    <h2 class="works-title">My Works</h2>
+    <article class="container-works">
+        {%- for project in site.projects -%}
+            <figure class="work-figure">
+                <a href="{{ project.url }}" class="link">
+                    <img src="{{ project.thumbnail  | prepend: '/assets/img/' }}" class="image">
+                    <div class="content">
+                        <div class="title">{{ project.name }}</div>
+                        <p class="description">{{ project.description }}</p>
+                    </div>
+                </a>
+            </figure>
+        {%- endfor -%}
+    </article>
+    <button class="cool-button" id="more">Show More</button>
+</section>

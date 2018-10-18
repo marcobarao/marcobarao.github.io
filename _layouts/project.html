@@ -1,0 +1,78 @@
+---
+layout: header-background
+---
+<link rel="stylesheet" href="{{ "assets/project.css" | relative_url }}">
+<link rel="stylesheet" href="../assets/blueimp.min.css">
+<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
+    <div class="slides"></div>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <ol class="indicator"></ol>
+</div>
+<section class="wrap-project">
+    <div class="container">
+        <h1 class="project-title">{{ page.name }}</h1>
+        <h2 class="project-subtitle">Infos</h2>
+        <div class="container-info">
+            <div class="info-project">
+                <h3 class='title'>
+                    Client
+                </h3>
+                <p class="info">
+                    {{ page.client }}
+                </p>
+            </div>
+            <div class="info-project">
+                <h3 class='title'>
+                    Domain
+                </h3>
+                <p class="info">
+                    {{ page.domain }}
+                </p>
+            </div>
+            <div class="info-project">
+                <h3 class='title'>
+                    Year
+                </h3>
+                <p class="info">
+                    {{ page.year }}
+                </p>
+            </div> 
+            <div class="info-project">
+                <h3 class='title'>
+                    Tags
+                </h3>
+                <div class="tags">
+                    {%- for tag in page.tags -%}
+                        <p class="tag">
+                            {{ tag }}
+                        </p>
+                    {%- endfor -%}
+                </div>
+            </div> 
+        </div>
+        <h2 class="project-subtitle">Brief</h2>
+        <div class="project-brief">
+            {{ content }}
+        </div>
+        <h2 class="project-subtitle">Images</h2>
+        <div class="projects-container" id="links">
+            {%- for img in page.imgs -%}
+                <a href="{{ img | prepend:'../assets/img/' }}" class="project-figure">
+                    <img class="image" src="{{ img | prepend: '/assets/img/' | relative_url }}">
+                </a>
+            {%- endfor -%}
+        </div>
+    </div>
+    <div class="container-arrows">
+        {%- if page.previous.url -%}
+            <a href="{{page.previous.url}}" class="link-left">&laquo;<span class="text-arrow -left">{{page.previous.name}}</span></a>
+        {%- else -%}
+            <a href="{{site.url | append: '#works' }}" class="link-left">&laquo;<span class="text-arrow -left">Works</span></a>
+        {%- endif -%}
+        {%- if page.next.url -%}   
+            <a href="{{page.next.url}}" class="link-right"><span class="text-arrow -right">{{ page.next.name }}</span>&raquo;</a>
+        {%- endif -%}
+    </div>
+</section>
