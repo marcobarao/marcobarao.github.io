@@ -1,7 +1,6 @@
 ---
 layout: project
 name: Braven
-description: A responsive & one-page website for a movie was developed with HTML, CSS and JS.
 client: Ingenious Media
 domain: Front-end Development
 year: 2018
