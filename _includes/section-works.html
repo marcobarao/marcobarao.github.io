@@ -6,7 +6,7 @@
             <a href="{{ project.url }}" class="link">
                 <img src="{{ project.thumbnail  | prepend: '/assets/img/' }}" class="image">
                 <div class="content">
-                    <div class="title">{{ project.name }}</div>
+                    <div class="title">{{ project.title }}</div>
                     <p class="description">
                         {%- for tag in project.tags -%}
                         {%- if forloop.last == false -%}

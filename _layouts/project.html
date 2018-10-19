@@ -6,7 +6,7 @@ layout: header-background
 <section class="wrap-project">
     <div class="container">
         <div class="title-container">
-            <h1 class="project-title">{{ page.name }}</h1>
+            <h1 class="project-title">{{ page.title }}</h1>
             <div>
                 {%- if page.site -%}
                 <a href="{{ page.site }}" class="cool-button" target="_blank">
@@ -81,12 +81,12 @@ layout: header-background
     </div>
     <div class="container-arrows">
         {%- if page.previous.url -%}
-        <a href="{{page.previous.url}}" class="link-left">&laquo;<span class="text-arrow -left">{{page.previous.name}}</span></a>
+        <a href="{{page.previous.url}}" class="link-left">&laquo;<span class="text-arrow -left">{{page.previous.title}}</span></a>
         {%- else -%}
         <a href="{{site.url | append: '#works' }}" class="link-left">&laquo;<span class="text-arrow -left">Works</span></a>
         {%- endif -%}
         {%- if page.next.url -%}
-        <a href="{{page.next.url}}" class="link-right"><span class="text-arrow -right">{{ page.next.name }}</span>&raquo;</a>
+        <a href="{{page.next.url}}" class="link-right"><span class="text-arrow -right">{{ page.next.title }}</span>&raquo;</a>
         {%- endif -%}
     </div>
 </section>

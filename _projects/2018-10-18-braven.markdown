@@ -1,6 +1,6 @@
 ---
 layout: project
-name: Braven
+title: Braven
 client: Ingenious Media
 domain: Front-end Development
 year: 2018
