@@ -18,7 +18,7 @@ email: marco.barao@outlook.com
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://marcobarao.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: baraodev
-github_username:  marcobarao
+github_username: marcobarao
 linkedin_username: marcoabn
 
 # Build settings

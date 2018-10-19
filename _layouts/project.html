@@ -1,19 +1,28 @@
 ---
 layout: header-background
 ---
-<link rel="stylesheet" href="{{ "assets/project.css" | relative_url }}">
+<link rel="stylesheet" href="{{ "/assets/project.css" | relative_url }}">
 <link rel="stylesheet" href="../assets/blueimp.min.css">
-<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
-    <div class="slides"></div>
-    <a class="prev">‹</a>
-    <a class="next">›</a>
-    <a class="close">×</a>
-    <ol class="indicator"></ol>
-</div>
 <section class="wrap-project">
     <div class="container">
-        <h1 class="project-title">{{ page.name }}</h1>
-        <h2 class="project-subtitle">Infos</h2>
+        <div class="title-container">
+            <h1 class="project-title">{{ page.name }}</h1>
+            <div>
+                {%- if page.site -%}
+                <a href="{{ page.site }}" class="cool-button" target="_blank">
+                    View site
+                </a>
+                {%- endif -%}
+                {%- if page.github -%}
+                <ul class="social-media">
+                    <a href="{{ page.github }}" class="action" target="_blank">
+                        <li class="item -github">GitHub</li>
+                        Repository
+                    </a>
+                </ul>
+                {%- endif -%}
+            </div>
+        </div>
         <div class="container-info">
             <div class="info-project">
                 <h3 class='title'>
@@ -38,41 +47,46 @@ layout: header-background
                 <p class="info">
                     {{ page.year }}
                 </p>
-            </div> 
+            </div>
             <div class="info-project">
                 <h3 class='title'>
                     Tags
                 </h3>
                 <div class="tags">
                     {%- for tag in page.tags -%}
-                        <p class="tag">
-                            {{ tag }}
-                        </p>
+                    <p class="tag">
+                        {{ tag }}
+                    </p>
                     {%- endfor -%}
                 </div>
-            </div> 
+            </div>
         </div>
-        <h2 class="project-subtitle">Brief</h2>
         <div class="project-brief">
             {{ content }}
         </div>
-        <h2 class="project-subtitle">Images</h2>
+        <div id="blueimp-gallery-carousel" class="blueimp-gallery blueimp-gallery-carousel">
+            <div class="slides"></div>
+            <h3 class="title"></h3>
+            <a class="prev">‹</a>
+            <a class="next">›</a>
+            <ol class="indicator"></ol>
+        </div>
         <div class="projects-container" id="links">
             {%- for img in page.imgs -%}
-                <a href="{{ img | prepend:'../assets/img/' }}" class="project-figure">
-                    <img class="image" src="{{ img | prepend: '/assets/img/' | relative_url }}">
-                </a>
+            <a href="{{ img | prepend:'../assets/img/' }}" class="project-figure">
+                <img class="image" src="{{ img | prepend: '/assets/img/' | relative_url }}">
+            </a>
             {%- endfor -%}
         </div>
     </div>
     <div class="container-arrows">
         {%- if page.previous.url -%}
-            <a href="{{page.previous.url}}" class="link-left">&laquo;<span class="text-arrow -left">{{page.previous.name}}</span></a>
+        <a href="{{page.previous.url}}" class="link-left">&laquo;<span class="text-arrow -left">{{page.previous.name}}</span></a>
         {%- else -%}
-            <a href="{{site.url | append: '#works' }}" class="link-left">&laquo;<span class="text-arrow -left">Works</span></a>
+        <a href="{{site.url | append: '#works' }}" class="link-left">&laquo;<span class="text-arrow -left">Works</span></a>
         {%- endif -%}
-        {%- if page.next.url -%}   
-            <a href="{{page.next.url}}" class="link-right"><span class="text-arrow -right">{{ page.next.name }}</span>&raquo;</a>
+        {%- if page.next.url -%}
+        <a href="{{page.next.url}}" class="link-right"><span class="text-arrow -right">{{ page.next.name }}</span>&raquo;</a>
         {%- endif -%}
     </div>
 </section>
